@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* ---------- BODY ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    border: 5px solid black; /* outer border */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    width: 100%;
+    background-color: #A1D6E2;
+  text-align: center;
+  border-bottom: 5px solid black;
+  padding: 10px 0;
+  flex-shrink: 0;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: calc(100vh - 60px - 60px); /* subtract header + footer */
+}
+
+/* ---------- SECTION 1 ---------- */
+.section1 {
+  width: 50%;
+  background-color: #4DA8DA;
+  border-right: 5px solid black;
+  padding: 10px;
+  overflow-y: auto;
+  height: auto;
+}
+
+.section1 input {
+  width: 90%;
+  margin: 15px auto;
+  display: block;
+}
+
+.section1 label {
+  text-align: center;
+  display: block;
+}
+
+.section1 input:hover,
+.section1 button:hover {
+  background-color: #A1D6E2;
+}
+
+.section1 button:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- SECTION 2 ---------- */
+.section2 {
+  height: auto;
+  overflow-y: auto;
+  background-color: #A1D6E2;
+  flex-grow: 1;
+}
+
+.section2 h2 {
+  text-align: center;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.student-table th {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  background-color: #4DA8DA;
+  color: black;
+}
+.student-table td{
+  border: 1px solid black;
+  text-align: center;
+}
+
+#studentData td {
+  background-color: #4DA8DA;
+}
+
+/* ---------- FORM STYLING ---------- */
+form section {
+  margin: 20px 10px;
+}
+
+button {
+  margin: 20px auto;
+  display: block;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: #090909;
+  color: azure;
+  width: 100%;
+  height: 30px;            
+  position: fixed;         
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 13px;
+  line-height: 30px;       
+  padding: 0;
+  z-index: 999;
+  overflow: hidden;
+}
+
+footer i {
+  display: inline-block;
+  animation: move 10s linear infinite;
+  background-color: transparent;
+  position: relative;
+  font-size: 16px;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+
+/* ---------- MOBILE PHONES (<=640px) ---------- */
+  @media (max-width: 640px) {
+  .main {
+    flex-direction: column;
+    height: 100vh;             
+    overflow: visible; 
+  }
+  
+  header{
+    display:none;
+  }
+  .section1,
+  .section2 {
+    width: 100%;
+    height: 50%;
+    overflow-y: auto;
+  }
+
+  .section1 {
+    border-right: none;
+    border-bottom: 3px solid black;
+  }
+
+  footer {
+    position: static;
+    height: 30px;
+  }
+}
+
+/* ---------- TABLETS (641px - 1024px) ---------- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+    height: calc(100vh - 30px);
+    overflow: hidden;
+  }
+
+  .section1 {
+    width: 100%;
+    height: 60%; 
+    overflow-y: auto;
+    border-right: none;
+    border-bottom: 3px solid black;
+  }
+
+  .section2 {
+    width: 100%;
+    height: 40%; 
+    overflow-y: auto;
+  }
+
+  footer {
+    position: static;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+  }
+}
+.edit-btn,.delete-btn{
+    background-color: #A1D6E2;
+
+}
+/* ---------- DESKTOP (>=1025px) ---------- */
+@media (min-width: 1024px) {
+  .main {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 120px); /* header + footer height */
+    width: 100%; 
+  }
+
+  .section1,
+  .section2 {
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box; 
+  }
+
+  .section1 {
+    width: 50%; 
+  }
+
+  .section2 {
+    flex: 1;  
+    overflow-y: auto;
+  }
+
+  footer {
+    position: fixed;
+    height: 30px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
